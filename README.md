@@ -84,8 +84,25 @@ private String hi = (String) beans.get("hi"); //输出"这是个测试"
 > 类必须继承 **AnnotationMethod**
 >
 > ```java
+> public 构造器(Class<? extends Annotation> baseAnnotation) {
+>         super(baseAnnotation);
+> }
 > public void init(AnnotationTools annotationTools) {} // 写入
 > ```
 > annotationTools 是一个小工具包
 
 annotationTools 会分发一个已经配置好的扫描器 → [Reflections](https://github.com/ronmamo/reflections)  ← 和一个你的JavaPlugin类
+
+例子: [实现监听器的类](./src/main/java/com/brageast/easylib/realization/ListenerMethod.java)
+
+然后修改onEnable
+
+```java
+@Override
+public void onEnable() {
+    new EasyHook().
+        registerAnnotation(new ListenerMethod(BukkitListener.class)).
+        register(this).init(); // 注册到EasyLib 推荐放到第一行
+}
+```
+
