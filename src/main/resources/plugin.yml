@@ -1,0 +1,11 @@
+name: EasyLib
+main: com.brageast.easylib.EasyLib
+version: 1.0
+
+commands:
+  easylib:
+    description: "主要指令"
+    usgae: /<command>
+  easy:
+    description: "主要指令"
+    usgae: /<command>
