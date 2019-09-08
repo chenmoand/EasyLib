@@ -8,7 +8,12 @@
 
 请在plugin.yml文件里加上
 
-depend: EasyLib 或者 softdepend: EasyLib 
+``` yaml
+depend: EasyLib #或者 
+softdepend: EasyLib 
+```
+
+然后这样:
 
 ``` java
 @Override
@@ -19,7 +24,15 @@ public void onEnable() {
 
 ### 2. 注解和用法
 
-##### @Command  
+##### @lombok...
+
+```
+lombok不是注解但他是注解的一个集合插件携带了这个工具包
+
+```
+详情[看这个使用教程](https://www.jianshu.com/p/453c379c94bd) 
+
+##### @Cmmand  
 
 ```java
 @Command("easylib") // 注解是在你的插件注册指令哦!
@@ -65,3 +78,14 @@ private String hi = (String) beans.get("hi"); //输出"这是个测试"
 
 
 更多正在补充
+
+### 3. 如何扩展注解
+
+> 类必须继承 **AnnotationMethod**
+>
+> ```java
+> public void init(AnnotationTools annotationTools) {} // 写入
+> ```
+> annotationTools 是一个小工具包
+
+annotationTools 会分发一个已经配置好的扫描器 → [Reflections](https://github.com/ronmamo/reflections)  ← 和一个你的JavaPlugin类
