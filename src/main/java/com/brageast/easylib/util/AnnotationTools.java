@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.reflections.Reflections;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 @Data
@@ -15,6 +16,9 @@ public class AnnotationTools {
     private JavaPlugin javaPlugin;
     private Reflections reflections;
 
+    public String getName(){
+        return javaPlugin.getDescription().getName();
+    }
     /**
      * 判断是否是JavaPliguin
      * @param method
@@ -25,5 +29,8 @@ public class AnnotationTools {
     }
     public boolean isJavaPlugin(Class<?> cls){
         return javaPlugin.getClass() == cls;
+    }
+    public boolean isJavaPlugin(Field field) {
+        return javaPlugin.getClass() == field.getDeclaringClass();
     }
 }
