@@ -22,7 +22,7 @@ public void onEnable() {
 ##### @Command  
 
 ```java
-@Command("easylib")
+@Command("easylib") // 注解是在你的插件注册指令哦!
 public boolean easyLib(CommandSender sender, String[] args){
     sender.sendMessage("这是一条测试的命令");
     return true;
@@ -32,7 +32,7 @@ public boolean easyLib(CommandSender sender, String[] args){
 ##### @BukkitListener
 
 ```java
-@BukkitListener
+@BukkitListener // 注解是在你的插件注册监听器哦!
 public class PluginInit implements Listener {code...}
 ```
 
@@ -50,11 +50,16 @@ public class PluginInit{
 ##### @AutoJoin
 
 ```java
-@Bean
+@Bean("hi")
 public String str = "这是个测试";
 
-@AutoJoin("str")
-private String java; // 获取str 的值
+@AutoJoin("hi")
+private static String java; 
+// 获取str 的值 因为bukkit限制太大, 最多能导入静态
+// 如果想更多使用请
+private static final HashMap<String, Object> beans = BeanVaule.getPluginBean(this);
+ // this 可以是一个 JavaPlugin 或者 Plugin
+private String hi = (String) beans.get("hi"); //输出"这是个测试"
 ```
 
 

@@ -58,7 +58,7 @@ public class BeanMethod extends AnnotationMethod {
                 }
             }
         }
-        objects.forEach((n, b ) -> System.out.println(n  + " : " + b));
+//        objects.forEach((n, b ) -> System.out.println(n  + " : " + b));
         beans.put(name, objects); // 最终到这里面来
     }
 

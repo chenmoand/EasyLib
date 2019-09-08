@@ -30,9 +30,10 @@ public class CommandMethod extends AnnotationMethod {
                                 new CommandImpl(annotationTools.getJavaPlugin(), method));
                         continue;
                     }
+                    Object object = method.getDeclaringClass().newInstance();
                     annotationTools.getJavaPlugin().getServer().
                             getPluginCommand(cmd.value()).setExecutor(
-                                    new CommandImpl(method.getDeclaringClass().newInstance(), method));
+                                    new CommandImpl(object, method));
                 } catch (InstantiationException | IllegalAccessException e) {
                     e.printStackTrace();
                 }
