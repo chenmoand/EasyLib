@@ -3,6 +3,7 @@ package com.brageast.easylib.realization;
 import com.brageast.easylib.annotation.Bean;
 import com.brageast.easylib.mapping.AnnotationMethod;
 import com.brageast.easylib.util.AnnotationTools;
+import lombok.Getter;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -15,7 +16,7 @@ import java.util.Set;
  */
 public class BeanMethod extends AnnotationMethod {
     // bean 存储map很重要
-    private static HashMap<String, HashMap<String, Object>> beans = new HashMap<>();
+    @Getter private static HashMap<String, HashMap<String, Object>> beans = new HashMap<>();
 
     public BeanMethod(Class<? extends Annotation> baseAnnotation) {
         super(baseAnnotation);

@@ -36,4 +36,27 @@ public boolean easyLib(CommandSender sender, String[] args){
 public class PluginInit implements Listener {code...}
 ```
 
+##### @Bean
+
+```java
+@Bean // 将类交给EasyLib管理
+public class PluginInit{
+    @Bean // 将属性交给EasyLib管理
+    public String str = "这是个测试";
+
+}
+```
+
+##### @AutoJoin
+
+```java
+@Bean
+public String str = "这是个测试";
+
+@AutoJoin("str")
+private String java; // 获取str 的值
+```
+
+
+
 更多正在补充
