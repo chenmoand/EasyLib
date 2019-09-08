@@ -4,6 +4,10 @@
 
 ### 1.  使用方法
 
+请在plugin.yml文件里加上
+
+depend: EasyLib 或者 softdepend: EasyLib 
+
 ``` java
 @Override
 public void onEnable() {
