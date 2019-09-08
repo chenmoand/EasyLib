@@ -5,10 +5,10 @@
 ### 1.  使用方法
 
 ``` java
-	@Override
-    public void onEnable() {
-        new EasyHook().register(this).init(); // 注册到EasyLib 推荐放到第一行
-    }
+@Override
+public void onEnable() {
+    new EasyHook().register(this).init(); // 注册到EasyLib 推荐放到第一行
+}
 ```
 
 ### 2. 注解和用法
@@ -16,18 +16,18 @@
 ##### @Command  
 
 ```java
-	@Command("easylib")
-    public boolean easyLib(CommandSender sender, String[] args){
-        sender.sendMessage("这是一条测试的命令");
-        return true;
-    }
+@Command("easylib")
+public boolean easyLib(CommandSender sender, String[] args){
+    sender.sendMessage("这是一条测试的命令");
+    return true;
+}
 ```
 
 ##### @BukkitListener
 
 ```java
-	@BukkitListener
-	public class PluginInit implements Listener {code...}
+@BukkitListener
+public class PluginInit implements Listener {code...}
 ```
 
 更多正在补充
